@@ -41,6 +41,9 @@ if (!undefined) { //if문이 실행된다.
 
 /**
  * null과 undefined의 연산
+ * 덧셈 연산 상으로는 null과 undefined 모두 문자열 형태로 변환되어 결합된다.
+ * 비동기 통신으로 null이 저장된 변수를 spring 서버로 전송하게 되면 해당 데이터는 "null"로 넘어온다.
+ * 하지만 undefined의 경우 spring 서버로 전송하게 되면 해당 데이터는 null로 넘어온다.
  */
 console.log(null + "안녕")
 console.log(undefined + "안녕")
