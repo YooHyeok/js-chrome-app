@@ -13,6 +13,7 @@ console.log(isNaN("123ㅂㅈㄷ")) // Not a Number 이므로 true
  * if(condition)
  * condition은 true 혹은 false만 들어올 수 있다.
  * if(true/false)
+ * else의 선택적 사항으로 모든 조건이 아닐경우 실행된다.
  */
 let condition = false|true
 if (condition) {
