@@ -29,6 +29,6 @@ function handleTitleClick() {
 
 }
 
-h1.addEventListener("click", handleTitleClick); // 함수를 바로 호출하는 형태()(이대로 넘기면 클릭하지 않아도 바로호출됨)를 넘기지 않고 함수 명만 넘겨야 클릭했을때에만 호출된다.
+h1.addEventListener("click", handleTitleClick);
 
 
