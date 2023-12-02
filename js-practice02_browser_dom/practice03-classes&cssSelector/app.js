@@ -61,7 +61,15 @@ console.log(querysId)
 
 /**
  * querySelector에서 tagName이 되는 이유.
- * css선택자를 사용하기 때문에 
+ * css선택자를 사용하기 때문에 css문법 그 자체로 사용한다.
  * ex1) body {}
  * ex2) .something h1 {}
  */
+
+/**
+ * Pseudo-classes 문법 적용 가능
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/:first-child
+ * 
+ */
+const pseudoH1 = document.querySelector("div.hello:first-child h1")
+console.log(pseudoH1)
