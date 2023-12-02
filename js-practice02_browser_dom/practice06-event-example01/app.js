@@ -3,7 +3,9 @@ console.log(h1)
 document.body.style.backgroundColor = "beige"
 
 
-
+/**
+ * 자바스크립트로 css를 직접 제어
+ */
 function handleTitleClick() {
 
   /* if (h1.style.color === "blue") {
