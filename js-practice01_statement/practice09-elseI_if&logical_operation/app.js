@@ -22,6 +22,10 @@ if (isNaN(age) || age < 0) {
   console.log("You are too young.") // 너는 너무 어려.
 } else if (age >= 18 && age <= 50) {
   console.log("You can drink") // 너는 마실 수 있다.
-} else if(age > 50 && age <= 80) {
-  console.log("You should exerciese ") // 너는 운동을 해야만한다
+} else if (age > 50 && age <= 80) {
+  console.log("You should exerciese") // 너는 운동을 해야만한다
+} else if (age > 80) {
+  console.log("You can do whatever you want.")
+} else if (age === 100) {
+  console.log("wow you are wise")
 }
