@@ -16,6 +16,7 @@ function onLoginSubmit(e) {
   loginForm.classList.add(HIDDEN_CLASSNAME)
   // greeting.append("Hello " + username)
   // greeting.innerText = "Hello " + username
+  localStorage.setItem("username", username)
   greeting.innerText = `Hello ${username}` // 템플릿 리터럴: `백틱` + ${플레이스 홀더}
   greeting.classList.remove(HIDDEN_CLASSNAME)
 }
