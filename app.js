@@ -1,7 +1,9 @@
 const loginForm = document.querySelector("#login-form")
 const loginInput = document.querySelector("#login-form input") // 가장 처음 input
-const link = document.querySelector("a")
+// const link = document.querySelector("a")
+const greeting = document.querySelector("#greeting")
 
+const HIDDEN_CLASSNAME = "hidden"
 
 /**
  * form submit의 기본동작인 새로고침이 발생한다.
@@ -10,8 +12,12 @@ const link = document.querySelector("a")
  */
 function onLoginSubmit(e) {
   e.preventDefault();
-  console.log(e)
-  console.dir(e)
+  const username = loginInput.value;
+  loginForm.classList.add(HIDDEN_CLASSNAME)
+  // greeting.append("Hello " + username)
+  // greeting.innerText = "Hello " + username
+  greeting.innerText = `Hello ${username}` // 템플릿 리터럴: `백틱` + ${플레이스 홀더}
+  greeting.classList.remove(HIDDEN_CLASSNAME)
 }
 
 function handleLinkClick(e) {
@@ -23,4 +29,4 @@ function handleLinkClick(e) {
  * addEventListener의 콜백함수 호출시 발생한 이벤트 객체를 매개변수로 넘긴다.
  */
 loginForm.addEventListener("submit", onLoginSubmit);
-link.addEventListener("click", handleLinkClick);
+// link.addEventListener("click", handleLinkClick);
