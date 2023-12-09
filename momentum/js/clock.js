@@ -16,7 +16,8 @@ function getClock() {
   const minutes = formatDoubleDigit(date.getMinutes(), 2, "0")
   const seconds = formatDoubleDigit(date.getSeconds(), 2, "0")
   // clock.innerText = `${pureHours >= 12 ? '[PM]' : '[AM]'}${pureHours}:${date.getMinutes()}:${date.getSeconds() < 10 ? '0'+date.getSeconds() : date.getSeconds()}`
-  clock.innerText = `${pureHours >= 12 ? '[PM]' : '[AM]'}${hours}:${minutes}:${seconds}`
+  // clock.innerText = `${pureHours >= 12 ? '[PM]' : '[AM]'}${hours}:${minutes}:${seconds}`
+  clock.innerText = `${hours}:${minutes}:${seconds}`
 }
 
 function formatDoubleDigit(time, maxLength, fillString) {
