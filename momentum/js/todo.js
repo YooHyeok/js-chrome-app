@@ -32,10 +32,12 @@ function handleToDoSubmit(e) {
  */
 function paintToDo(newToDoObj) {
   const li = document.createElement("li")
+  li.className = "toDo";
   const span = document.createElement("span")
   span.innerText = newToDoObj.text;
   li.dataset.id = newToDoObj.id
   const button = document.createElement("button")
+  button.className = "toDo__button"
   button.innerText = "❌" //이모지 단축키 : window + .
   button.addEventListener("click", deleteToDo)
   li.appendChild(span);
