@@ -9,8 +9,12 @@ let toDos = [];
 function handleToDoSubmit(e) {
   e.preventDefault(); //form 태그 안에 들어있는 input에 enter시 작동하는 submit을 방지
   const newToDo = toDoInput.value
-  paintTo(newToDo)
-  toDos.push(newToDo) // 입력된 todo 배열에 추가
+  const newToDoObj = {
+    text: newToDo,
+    id: Date.now(),
+  }
+  paintToDo(newToDoObj)
+  toDos.push(newToDoObj) // 입력된 todo object 배열에 추가
   saveToDos()
   toDoInput.value = "";
 }
@@ -26,10 +30,11 @@ function handleToDoSubmit(e) {
   * li.appendChild(textNode)
   * toDoList.appendChild(li)
  */
-function paintTo(newToDo) {
+function paintToDo(newToDoObj) {
   const li = document.createElement("li")
   const span = document.createElement("span")
-  span.innerText = newToDo;
+  span.innerText = newToDoObj.text;
+  li.dataset.id = newToDoObj.id
   const button = document.createElement("button")
   button.innerText = "❌" //이모지 단축키 : window + .
   button.addEventListener("click", deleteToDo)
@@ -39,9 +44,14 @@ function paintTo(newToDo) {
 }
 
 function deleteToDo(e) {
-  console.dir(e.target)
-  // e.target.parentNode.remove() 
-  e.target.parentElement.remove() //event가 발생한 target : button / button의 부모노드 : li [제거]
+  const li = e.target.parentElement;
+
+  li.remove() //event가 발생한 target : button / button의 부모노드 : li [제거]
+  
+  localStorage.removeItem(TODOS_KEY)
+  // localStorage.setItem(TODOS_KEY, JSON.stringify(toDos.filter(el => el.id != li.dataset.id))) 
+  toDos = toDos.filter(el => el.id !== Number.parseInt(li.dataset.id)) // 리액트처럼 값이 변할경우 리랜더링이 되지 않으면 toDos의 값에서는 삭제가 되지 않기때문에 toDos에 반영을 해줘야한다.
+  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos))
 }
 
 /**
@@ -66,5 +76,5 @@ if (savedToDos !== null) {
   toDos = paresedToDos;
   // paresedToDos.forEach(function(item) {paintTo(item)}); // forEach : Array의 각 item에 대해 function을 실행한다. (호출한 function에 매개변수로 item을 넘긴다.)
   // paresedToDos.forEach((item) => paintTo(item)); // 콜백함수를 arrow 함수 형태로 사용
-  toDos.forEach(paintTo); // 자바스크립트가 자동으로 parseToDos배열의 특정 요소에 순차적으로 접근하여 콜백함수의 매개변수로 전달하기 때문에 함수명만 넣어주면 해당 함수의 매개변수로 전달해준다.
+  toDos.forEach(paintToDo); // 자바스크립트가 자동으로 parseToDos배열의 특정 요소에 순차적으로 접근하여 콜백함수의 매개변수로 전달하기 때문에 함수명만 넣어주면 해당 함수의 매개변수로 전달해준다.
 }
