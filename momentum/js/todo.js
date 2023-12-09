@@ -29,8 +29,18 @@ function paintTo(newToDo) {
   */
   const span = document.createElement("span")
   span.innerText = newToDo;
+  const button = document.createElement("button")
+  button.innerText = "❌" //이모지 단축키 : window + .
+  button.addEventListener("click", deleteToDo)
   li.appendChild(span);
+  li.appendChild(button);
   toDoList.appendChild(li)
+}
+
+function deleteToDo(e) {
+  console.dir(e.target)
+  // e.target.parentNode.remove() 
+  e.target.parentElement.remove() //event가 발생한 target : button / button의 부모노드 : li [제거]
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
