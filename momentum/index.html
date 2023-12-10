@@ -7,50 +7,52 @@
   <title>Momentum App</title>
 </head>
 <body>
+  <div id="weather" class="weather">
+    <span >
+    </span>
+  </div>
+  <div id="location" class="location">
+    <span >
+      <!-- 현재 위치 -->
+    </span>
+  </div>
   <section class="center">
     <form id="login-form" class="hidden">
       <!-- input의 기본속성(required / maxlength 등) 유효성 검사를 작동하기 위헤서는 form 태그에 속해야한다. -->
-      <!-- input 혹은 button의 submit이벤트가 발생하고 이벤트 발생 직전에 유효성 속성들에 대한 검증작업이 진행된다 -->
-      <input required maxlength="15" type="text" placeholder="What is your name?">
+      <input class="name__input" required maxlength="15" type="text" placeholder="What is your name?">
       <input type="submit" value="Log In"/>
+      <!-- input 혹은 button의 submit이벤트가 발생하고 이벤트 발생 직전에 유효성 속성들에 대한 검증작업이 진행된다 -->
     </form>
-    <h1 id="greeting" class="hidden"></h1>
+    <h1 id="greeting" class="hidden name__text">
+      <!-- 로그인 아이디 -->
+    </h1>
+
     <h2 class="clock" id="clock">00:00:00</h2>
+
     <div id="quotes">
-      <span></span>
-      <span></span>
+      <span>
+        <!-- 명언 -->
+      </span>
+      <span>
+        <!-- 위인 -->
+      </span>
     </div>
     <br>
+
     <form id="todo-form">
       <input required type="text" placeholder="Write a To Do and Press"> <!-- form 태그 안에 있는 입력폼에서 enter를 누르면 submit이 발생한다.. -->
     </form>
-    <ul id="todo-list"></ul>
+
+    <ul id="todo-list" class="list">
+      <!-- 추가한 todo li -->
+    </ul>
 
 </section>
-
-<!--   <h2 id="clock">00:00:00</h2>
-  <form id="login-form" class="hidden"> -->
-    
-    <!-- input의 기본속성(required / maxlength 등) 유효성 검사를 작동하기 위헤서는 form 태그에 속해야한다. -->
-    <!-- input 혹은 button의 submit이벤트가 발생하고 이벤트 발생 직전에 유효성 속성들에 대한 검증작업이 진행된다 -->
-    
-    <!-- <input required maxlength="15" type="text" placeholder="What is your name?">
-    <input type="submit" value="Log In"/>
-  </form>
-  <h1 id="greeting" class="hidden"></h1>
-  <form id="todo-form">
-    <input required type="text" placeholder="Write a To Do and Press"> --> <!-- form 태그 안에 있는 입력폼에서 enter를 누르면 submit이 발생한다.. -->
-  <!-- </form>
-  <ul id="todo-list"></ul>
-  <div id="quotes">
-    <span></span>
-    <span></span>
-  </div> -->
-  <!-- <a href="https://nomadcoders.co">Go To Courses</a> -->
   <script src="./js/greetings.js"></script>
   <script src="./js/clock.js"></script>
   <script src="./js/quotes.js"></script>
   <script src="./js/background.js"></script>
   <script src="./js/todo.js"></script>
+  <script src="./js/weather.js"></script>
 </body>
 </html>

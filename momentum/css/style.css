@@ -4,6 +4,8 @@
 @import "center.css";
 @import "clock.css";
 @import "todo.css";
+@import "location.css";
+@import "weather.css";
 
 
 .hidden {
@@ -21,3 +23,4 @@ img {
   z-index: -1;
   opacity:80%;
   }
+
